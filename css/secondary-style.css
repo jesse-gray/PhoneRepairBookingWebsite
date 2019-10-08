@@ -1,0 +1,83 @@
+/*MOBILE FIRST APPROACH: All styles below are set for mobile devices*/
+/*Global Styles*/
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*Use CSS variables*/
+:root {
+    --main-color: #EBFAF5;
+    --header-color: #2A3A4A;
+    --div-color: #FAEBD5;
+    --footer-section-color: #293B44;
+}
+
+body {
+    font-size: 1em;
+}
+
+/*----------------------------------------*/
+/*Style for header*/
+header{
+    background-color: var(--header-color);
+    min-height: 20vh;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+header .title-area {
+    padding: 1.5em 0.5em;
+}
+
+/*----------------------------------------*/
+/*Style for main*/
+main {
+    background-color: var(--main-color);
+    color: black;
+}
+
+.faqArticle{
+    margin: 5em;
+    background-color: var(--div-color);
+}
+
+/*----------------------------------------*/
+/*Style for footer*/
+footer {
+    background-color: var(--footer-section-color);
+    min-height: 3em;
+    color: white;
+    font-weight: bold;
+    /*Centering the paragraph vertically and horizontally*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*----------------------------------------*/
+/*STYLES FOR TABLE /iPAD*/
+@media screen and (min-width: 600px) {
+    
+}
+
+
+/*----------------------------------------*/
+/*STYLES FOR LAPTOP/DESKTOP*/
+@media screen and (min-width: 1024px) {
+    /*Move the nav bar to the right top corner*/
+    header {
+        /*Use CSS Grid*/
+        display: grid;
+        grid-template-areas: ' title-area title-area title-area';/*Create a grid of 1 row, 3 colums*/
+        grid-template-columns: 1fr 1fr 1fr;/*Make 3 column widths equal*/
+    }
+    .title-area {
+        grid-area: title-area;
+    }
+}
+

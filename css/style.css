@@ -1,0 +1,262 @@
+/*MOBILE FIRST APPROACH: All styles below are set for mobile devices*/
+/*Global Styles*/
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*Use CSS variables*/
+:root {
+    --main-color: #006064;
+    --header-color: #2A3A4A;
+    --nav-color: #5F9D9D;
+    --customer-detail-color: #F7EDDC;
+    --repair-detail-color: #F1FFFF;
+    --courtesy-phone-color: #609DA0;
+    --cost-section-color: #EA967A;
+    --button-section-color: #EA967A;
+    --footer-section-color: #293B44;
+}
+
+body {
+    font-size: 1em;
+}
+
+/*----------------------------------------*/
+/*Style for header*/
+header{
+    background-color: var(--header-color);
+    min-height: 20vh;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+header .title-area {
+    padding: 1.5em 0.5em;
+}
+
+header nav ul li {
+    display: block;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    background-color: var(--nav-color);
+    padding: 0.5em;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+}
+
+/*----------------------------------------*/
+/*Style for main*/
+main {
+    background-color: var(--main-color);
+    color: black;
+}
+
+.form-layout {
+}
+
+/*Customer details*/
+.customerDetails {
+    background-color: var(--customer-detail-color);
+    min-height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 2em;
+}
+
+.customerDetails label, fieldset, .repairDetails label, fieldset, .costSection label {
+    margin-top: 0.5em;
+}
+
+h2, fieldset {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+fieldset {
+    padding: 0.5em;
+}
+
+/*Repair details*/
+.repairDetails {
+    background-color: var(--repair-detail-color);
+    min-height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 2em;
+}
+
+/*Courtesy phone*/
+.courtesyPhone {
+    background-color: var(--courtesy-phone-color);
+    min-height: 15vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 2em;
+    gap: 0.5em;
+}
+
+#addBtn {
+    height: 40px;
+}
+
+#itemList tr {
+    background-color: #DEE0E0;
+    height: 50px;
+}
+
+
+#itemList {
+    border-collapse: collapse;
+    background-color: #E0E1E1;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+#itemList, #itemList th, td {
+    border: 1px solid black;
+
+}
+
+/*Cost section*/
+.costSection {
+    background-color: var(--cost-section-color);
+    min-height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 2em;
+}
+
+/*Button section*/
+.buttonSection {
+    background-color: var(--button-section-color);
+    min-height: 5vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 2em;
+    gap: 0.5em;
+}
+
+.buttonSection button {
+    display: block;
+    height: 40px;
+    width: 100%;
+    margin: auto;
+}
+
+/*----------------------------------------*/
+/*Style for footer*/
+footer {
+    background-color: var(--footer-section-color);
+    min-height: 3em;
+    color: white;
+    font-weight: bold;
+    /*Centering the paragraph vertically and horizontally*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*----------------------------------------*/
+/*STYLES FOR TABLE /iPAD*/
+@media screen and (min-width: 600px) {
+    /*Make the nav bar horizontal*/
+    header nav ul {
+        /*Use CSS Grid*/
+        display: grid;
+        grid-template-columns: 1fr 1fr;/*Create 2 equal colums*/
+        grid-gap: 0.3em;
+    }
+
+    header nav ul li {
+        display: block;
+    }
+
+    .customerDetails, .repairDetails, .courtesyPhone, .costSection, .buttonSection {
+        padding: 1em 10em;
+    }
+}
+
+
+/*----------------------------------------*/
+/*STYLES FOR LAPTOP/DESKTOP*/
+@media screen and (min-width: 1024px) {
+    /*Move the nav bar to the right top corner*/
+    header {
+        /*Use CSS Grid*/
+        display: grid;
+        grid-template-areas: ' title-area title-area menu-area';/*Create a grid of 1 row, 3 colums*/
+        grid-template-columns: 1fr 1fr 1fr;/*Make 3 column widths equal*/
+    }
+    .title-area {
+        grid-area: title-area;
+    }
+
+    .menu-area {
+        grid-area: menu-area;
+    }
+
+    /*Set styles for main area*/
+    .form-layout {
+        display: grid;
+        grid-gap: 0;
+        /*Create a gid of 3 rows and 3 columns*/
+        grid-template-areas: 
+            'customerDetails-area repairDetails-area courtesyPhone-area'/*First row*/
+            'customerDetails-area repairDetails-area costSection-area'/*Second row*/
+            'buttonSection-area buttonSection-area buttonSection-area';/*Third row*/
+        grid-template-columns: 1fr 1fr 1fr;/*Make 3 colums width equal*/
+    }
+
+    .customerDetails {
+        grid-area: customerDetails-area;
+    }
+
+    .repairDetails {
+        grid-area: repairDetails-area;
+    }
+
+    .courtesyPhone {
+        grid-area: courtesyPhone-area;
+    }
+
+    .costSection {
+        grid-area: costSection-area;
+    }
+
+    .buttonSection {
+        grid-area: buttonSection-area;
+    }
+
+    .customerDetails, .repairDetails, .courtesyPhone, .costSection {
+        grid-template-columns: 50% 50%;
+    }
+
+    .customerDetails, .repairDetails, .courtesyPhone, .costSection, .buttonSection {
+        padding: 1em 2em;
+        gap: 0.5em;
+    }
+
+    #addBtn {
+        width: 50%;
+    }
+
+    .buttonSection {
+        display: block;
+        text-align: center;
+    }
+
+    .buttonSection button {
+        display: inline-block;
+        width: 150px;
+    }
+}
+

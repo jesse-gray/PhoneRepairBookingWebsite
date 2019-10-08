@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<!--Head-->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<!--Body-->
+
+<body>
+    <!--Header Section-->
+    <header>
+        <!--Title-->
+        <h1 class="title-area">Phone Fix Booking System</h1>
+        <!--Navbar-->
+        <nav class="menu-area">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Extension</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Main Section-->
+    <main>
+        <!--Every inputs must be located in form-->
+        <form>
+            <div class="form-layout">
+                <!--Section 1: Customer Details-->
+                <section class="customerDetails">
+                    <h2>Customer Details</h2>
+                    <fieldset>
+                        <legend>Customer Type:*</legend>
+                        Consumer <input type="radio"><br>
+                        Business <input type="radio"><br>
+                    </fieldset>
+                    <label>Title:*</label>
+                    <select name="titles">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                        <option>Ms</option>
+                        <option>Miss</option>
+                        <option>Dr</option>
+                    </select>
+                    <label>First Name:*</label>
+                    <input type="text">
+                    <label>Last Name:*</label>
+                    <input type="text">
+                    <label>Street:*</label>
+                    <input type="text">
+                    <label>Suburb</label>
+                    <input type="text">
+                    <label>City:*</label>
+                    <input type="text">
+                    <label>Post Code:</label>
+                    <input type="text">
+                    <label>Phone Number:*</label>
+                    <input type="text">
+                    <label>Email:*</label>
+                    <input type="email">
+                </section>
+                <!--Section 2: Repair Details-->
+                <section class="repairDetails">
+                    <h2>Repair Details</h2>
+                    <label>Purchase Date:*</label>
+                    <input type="text">
+                    <label>Repair Date:*</label>
+                    <input type="text">
+                    <fieldset>
+                        <legend>Under Warranty:</legend>
+                        Warranty: <input type="checkbox"><br>
+                    </fieldset>
+                    <label>IMEI Number:*</label>
+                    <input type="text">
+                    <label>Make:*</label>
+                    <select name="makes">
+                        <option>Apple</option>
+                        <option>LG</option>
+                        <option>Motorola</option>
+                        <option>Nokia</option>
+                        <option>Samsung</option>
+                        <option>Sony</option>
+                        <option>Other</option>
+                    </select>
+                    <label>Model Number:</label>
+                    <input type="text">
+                    <label>Fault Category:*</label>
+                    <select name="faults">
+                        <option>Battery</option>
+                        <option>Charging</option>
+                        <option>Screen</option>
+                        <option>SD-storage</option>
+                        <option>Software</option>
+                        <option>Other</option>
+                    </select>
+                    <label>Description:*</label>
+                    <textarea rows="10"></textarea>
+                </section>
+                <!--Section 3: Courtesy Phone-->
+                <section class="courtesyPhone">
+                    <h2>Courtesy Phone</h2>
+                    <label>Item Type:</label>
+                    <select name="faults">
+                        <option>iPhone</option>
+                        <option>Other Phone</option>
+                        <option>Charger</option>
+                    </select>
+                    <button id="addBtn">ADD</button>
+                    <table id="itemList">
+                        <tr>
+                            <th>ITEM</th>
+                            <th>COST</th>
+                        </tr>
+                    </table>
+                </section>
+                <!--Section 4: Cost Section-->
+                <section class="costSection">
+                    <h2>Cost</h2>
+                    <label>Bond:</label>
+                    <input type="text" readonly>
+                    <label>Service Fee:</label>
+                    <input type="text" readonly>
+                    <label>Total:</label>
+                    <input type="text" readonly>
+                    <label>GST:</label>
+                    <input type="text" readonly>
+                    <label>Total(+GST):</label>
+                    <input type="number" readonly>
+                </section>
+                <!--Section 5: Button Section-->
+                <section class="buttonSection">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                    <button onclick="openFAQ()">FAQ?</button>
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <!--Footer Section-->
+    <footer>
+        <p>Advanced Web Design, Copyright &copy; 2019</p>
+    </footer>
+</body>
+
+</html>
