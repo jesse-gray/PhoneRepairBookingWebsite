@@ -5,8 +5,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script src="javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="javascript.js"></script>
 </head>
 
 <!--Body-->
@@ -35,7 +35,7 @@
                     <h2>Customer Details</h2>
                     <fieldset>
                         <legend>Customer Type:*</legend>
-                        Consumer <input type="radio"><br> Business <input type="radio"><br>
+                        Consumer <input type="radio" id="customertype"><br> Business <input type="radio"><br>
                     </fieldset>
                     <label>Title:*</label>
                     <select name="titles">
@@ -46,35 +46,35 @@
                         <option>Dr</option>
                     </select>
                     <label>First Name:*</label>
-                    <input type="text">
+                    <input type="text" id="firstname">
                     <label>Last Name:*</label>
-                    <input type="text">
+                    <input type="text" id="lastname">
                     <label>Street:*</label>
-                    <input type="text">
+                    <input type="text" id="street">
                     <label>Suburb</label>
                     <input type="text">
                     <label>City:*</label>
-                    <input type="text">
+                    <input type="text" id="city">
                     <label>Post Code:</label>
                     <input type="text">
                     <label>Phone Number:*</label>
-                    <input type="text">
+                    <input type="text" id="phonenumber">
                     <label>Email:*</label>
-                    <input type="email">
+                    <input type="email" id="email">
                 </section>
                 <!--Section 2: Repair Details-->
                 <section class="repairDetails">
                     <h2>Repair Details</h2>
                     <label>Purchase Date:*</label>
-                    <input type="text">
+                    <input type="text" id="purchasedate">
                     <label>Repair Date:*</label>
-                    <input type="text">
+                    <input type="text" id="repairdate">
                     <fieldset>
                         <legend>Under Warranty:</legend>
                         Warranty: <input type="checkbox"><br>
                     </fieldset>
                     <label>IMEI Number:*</label>
-                    <input type="text">
+                    <input type="text" id="imeinumber">
                     <label>Make:*</label>
                     <select name="makes">
                         <option>Apple</option>
@@ -97,7 +97,7 @@
                         <option>Other</option>
                     </select>
                     <label>Description:*</label>
-                    <textarea rows="10"></textarea>
+                    <textarea rows="10" id="description"></textarea>
                 </section>
                 <!--Section 3: Courtesy Phone-->
                 <section class="courtesyPhone">
