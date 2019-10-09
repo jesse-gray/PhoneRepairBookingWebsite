@@ -25,13 +25,6 @@ function addItem() {
 }
 
 function updateCost() {
-    //Declare variables
-    // var bond = ;
-    // var service = ;
-    // var total = ;
-    // var gst = document.getElementById("gst").value;
-    // var grandtotal = document.getElementById("grandtotal").value;
-
     //Bond field
     var sum = 0;
     if (!document.getElementById('typebusiness').checked) {
@@ -62,7 +55,6 @@ function updateCost() {
     //Total(+GST) field
     grandTotal = total + gst;
     document.getElementById("grandtotal").value = convertToMoney(grandTotal);
-
 }
 
 function convertToMoney(aPrice) {
@@ -71,6 +63,10 @@ function convertToMoney(aPrice) {
 
 function openFAQ() {
     var faqWindow = window.open("faq.html", "_blank")
+}
+
+function clearForm() {
+    $("#itemList tbody tr").remove();
 }
 
 //----------FAQ Page----------

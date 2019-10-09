@@ -111,10 +111,13 @@
                     </select>
                     <button id="addBtn" type="button" onclick="addItem()">ADD</button>
                     <table id="itemList">
-                        <tr id="tableHeader">
-                            <th>ITEM</th>
-                            <th>COST</th>
-                        </tr>
+                        <thead>
+                            <tr id="tableHeader">
+                                <th>ITEM</th>
+                                <th>COST</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
                     </table>
                 </section>
                 <!--Section 4: Cost Section-->
@@ -133,7 +136,7 @@
                 </section>
                 <!--Section 5: Button Section-->
                 <section class="buttonSection">
-                    <button type="reset">Reset</button>
+                    <button type="reset" onclick="clearForm()">Reset</button>
                     <button type="submit">Submit</button>
                     <button onclick="openFAQ()">FAQ?</button>
                 </section>
