@@ -1,1 +1,17 @@
-//TODO
+[{
+        "question": "Why do I have to pay a service fee?",
+        "answer": "The service fee is there to cover the labour involved in the phone repair, simply put, it is the cost for the worker to repair the phone. All of the other costs involved are for the physical costs of replacement parts, or for a replacement phone etc, so this service fee is kept separate to distinguish where the costs of the repair are being allocated."
+    },
+    {
+        "question": "What is the bond for?",
+        "answer": "The bond acts as a contract between the customer and the company, and is an act of good faith when a phone is being used temporarily. It ensures that the customer is not going to run away with the temporary phone, and that they will come back to collect their repaired phone (at which point the bond is returned)"
+    },
+    {
+        "question": "Do I need a charger with my courtesy phone?",
+        "answer": "Yes, you will most definitely need a charger with your temporary phone, as some repairs can take longer than others. If you have your own charger that works on the phone however, you will not need to use one of the available chargers."
+    },
+    {
+        "question": "Why isnt my phone under warranty?",
+        "answer": "Most likely, you have had your phone for longer than 12 months, which is the standard period of time for a phone warranty. A warranty also only covers hardware defects and malfunctions, not accidental damage such as a dropped phone or water damage."
+    }
+]
