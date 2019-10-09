@@ -29,17 +29,17 @@
     <!--Main Section-->
     <main>
         <!--Every inputs must be located in form-->
-        <form name='form'>
+        <form id="form" method="POST" action="" onchange="updateCost()">
             <div class="form-layout">
                 <!--Section 1: Customer Details-->
                 <section class="customerDetails">
                     <h2>Customer Details</h2>
                     <fieldset>
                         <legend>Customer Type:*</legend>
-                        Consumer <input type="radio" id="customertype"><br> Business <input type="radio"><br>
+                        Consumer <input type="radio" name="customertype" id="typeconsumer"><br> Business <input type="radio" name="customertype" id="typebusiness"><br>
                     </fieldset>
                     <label>Title:*</label>
-                    <select name="titles">
+                    <select id="title" name="titles">
                         <option>Mr</option>
                         <option>Mrs</option>
                         <option>Ms</option>
@@ -72,12 +72,12 @@
                     <input type="text" id="repairdate">
                     <fieldset>
                         <legend>Under Warranty:</legend>
-                        Warranty: <input type="checkbox"><br>
+                        Warranty: <input type="checkbox" id="warranty"><br>
                     </fieldset>
                     <label>IMEI Number:*</label>
                     <input type="text" id="imeinumber">
                     <label>Make:*</label>
-                    <select name="makes">
+                    <select id="make" name="makes">
                         <option>Apple</option>
                         <option>LG</option>
                         <option>Motorola</option>
@@ -89,7 +89,7 @@
                     <label>Model Number:</label>
                     <input type="text">
                     <label>Fault Category:*</label>
-                    <select name="faults">
+                    <select id="faultcategory" name="faults">
                         <option>Battery</option>
                         <option>Charging</option>
                         <option>Screen</option>
@@ -104,14 +104,14 @@
                 <section class="courtesyPhone">
                     <h2>Courtesy Phone</h2>
                     <label>Item Type:</label>
-                    <select name="faults">
+                    <select id="itemType">
                         <option>iPhone</option>
                         <option>Other Phone</option>
                         <option>Charger</option>
                     </select>
-                    <button id="addBtn">ADD</button>
+                    <button id="addBtn" type="button" onclick="addItem()">ADD</button>
                     <table id="itemList">
-                        <tr>
+                        <tr id="tableHeader">
                             <th>ITEM</th>
                             <th>COST</th>
                         </tr>
@@ -121,15 +121,15 @@
                 <section class="costSection">
                     <h2>Cost</h2>
                     <label>Bond:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="bond" readonly>
                     <label>Service Fee:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="service" readonly>
                     <label>Total:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="total" readonly>
                     <label>GST:</label>
-                    <input type="text" readonly>
+                    <input type="text" id="gst" readonly>
                     <label>Total(+GST):</label>
-                    <input type="number" readonly>
+                    <input type="text" id="grandtotal" readonly>
                 </section>
                 <!--Section 5: Button Section-->
                 <section class="buttonSection">

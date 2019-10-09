@@ -1,53 +1,73 @@
-// $(document).ready(function() {
-//     // Wait for the DOM to be ready
-//     $(function() {
-//         // Initialize form validation on the registration form.
-//         // It has the name attribute "registration"
-//         $("form[name='form']").validate({
-//             // Specify validation rules
-//             rules: {
-//                 // The key name on the left side is the name attribute
-//                 // of an input field. Validation rules are defined
-//                 // on the right side
-//                 customertype: "required",
-//                 firstname: "required",
-//                 lastname: "required",
-//                 street: "required",
-//                 city: "required",
-//                 phonenumber: "required",
-//                 email: {
-//                     required: true,
-//                     // Specify that email should be validated
-//                     // by the built-in "email" rule
-//                     email: true
-//                 },
-//                 purchasedate: "required",
-//                 repairdate: "required",
-//                 imeinumber: "required",
-//                 description: "required"
-//             },
-//             // Specify validation error messages
-//             messages: {
-//                 customertype: "Please select a customer type",
-//                 firstname: "Please enter your firstname",
-//                 lastname: "Please enter your lastname",
-//                 street: "Please enter your street address",
-//                 city: "Please enter your city",
-//                 phonenumber: "Please enter your phone number",
-//                 email: "Please enter a valid email address",
-//                 purchasedate: "Please enter the purchase date",
-//                 repairdate: "Please enter the repair date",
-//                 imeinumber: "Please enter the IMEI number",
-//                 description: "Please enter a description of the fault"
-//             },
-//             // Make sure the form is submitted to the destination defined
-//             // in the "action" attribute of the form when valid
-//             submitHandler: function(form) {
-//                 form.submit();
-//             }
-//         });
-//     });
-// })
+function addItem() {
+    var item = document.getElementById("itemType").value;
+    var cost;
+    switch (item) {
+        case "iPhone":
+            cost = 275;
+            break;
+        case "Other Phone":
+            cost = 100;
+            break;
+        case "Charger":
+            cost = 30;
+            break;
+        default:
+            cost = 0;
+            break;
+    }
+    $("#itemList tbody").append(
+        "<tr>" +
+        "<td>" + item + "</td>" +
+        "<td class='cost'>" + cost + "</td>" +
+        "</tr>"
+    );
+    updateCost();
+}
+
+function updateCost() {
+    //Declare variables
+    // var bond = ;
+    // var service = ;
+    // var total = ;
+    // var gst = document.getElementById("gst").value;
+    // var grandtotal = document.getElementById("grandtotal").value;
+
+    //Bond field
+    var sum = 0;
+    if (!document.getElementById('typebusiness').checked) {
+        //Total the cost of items in the table
+        $('.cost').each(function() {
+            var value = $(this).text();
+            sum += parseFloat(value);
+        });
+    }
+    document.getElementById("bond").value = convertToMoney(sum);
+
+    //Service Fee field
+    if (!document.getElementById("warranty").checked) {
+        service = 85;
+    } else {
+        service = 0;
+    }
+    document.getElementById("service").value = convertToMoney(service);
+
+    //Total field
+    total = sum + service;
+    document.getElementById("total").value = convertToMoney(total);
+
+    //GST field
+    gst = total * 0.15;
+    document.getElementById("gst").value = convertToMoney(gst);
+
+    //Total(+GST) field
+    grandTotal = total + gst;
+    document.getElementById("grandtotal").value = convertToMoney(grandTotal);
+
+}
+
+function convertToMoney(aPrice) {
+    return "$" + aPrice.toFixed(2);
+}
 
 function openFAQ() {
     var faqWindow = window.open("faq.html", "_blank")
