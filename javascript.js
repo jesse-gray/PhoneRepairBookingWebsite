@@ -18,11 +18,148 @@ $(document).ready(function() {
         var purchaseDate = $('input#purchasedate').val();
         var repairDate = $('input#repairdate').val();
         var imeiNumber = $('input#imeinumber').val();
-        var make = $('#make option:selected').val();
-        var faultCategory = $('#faultcategory option:selected').val();
+        var make = $('#make option:selected').text();
+        var faultCategory = $('#faultcategory option:selected').text();
         var description = $('input#description').val();
 
         //Check values
+
+        // //Check customerType
+        // if (customerType == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#customertype').after('<p class="error_message">Please enter a customer type</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check title
+        // if (title == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#title').after('<p class="error_message">Please enter your title</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        //Check firstName
+        if (!(firstName == /^[a-zA-Z0-9- ]*$/) || firstName == null) {
+            //Invalid values
+            //Display an error message
+            $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
+                //Stop Checking and quit
+
+            console.log("test");
+            return false
+        }
+
+        //Check lastName
+        if (!(lastName == /^[a-zA-Z0-9- ]*$/) || lastName == null) {
+            //Invalid values
+            //Display an error message
+            $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check street
+        if (street == null) {
+            //Invalid values
+            //Display an error message
+            $('input#street').after('<p class="error_message">Please enter your street</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check city
+        if (city == null) {
+            //Invalid values
+            //Display an error message
+            $('input#city').after('<p class="error_message">Please enter your city</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check postCode
+        if (!(postCode.length == 4)) {
+            //Invalid values
+            //Display an error message
+            $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check phoneNumber
+        if (!(phoneNumber == /^[0-9-()+ ]*$/)) {
+            //Invalid values
+            //Display an error message
+            $('input#phonenumber').after('<p class="error_message">Please enter a valid phone number</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check email
+        if (email.indexOf("@") > email.indexOf(".") || email.length < 5) {
+            //Invalid values
+            //Display an error message
+            $('input#email').after('<p class="error_message">Please enter a valid email</p>')
+                //Stop Checking and quit
+            return false
+        }
+
+        //Check purchaseDate
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check repairDate
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check imeiNumber
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check make
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check faultCategory
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
+
+        // //Check description
+        // if () {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#//').after('<p class="error_message">Please enter your //</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
         //Call to execute a function displayInvoice()
         //displayInvoice(...);

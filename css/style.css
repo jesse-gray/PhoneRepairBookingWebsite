@@ -75,6 +75,14 @@ main {
 
 .form-layout {}
 
+.error_message {
+    color: red;
+    padding: 0;
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
 
 /*Customer details*/
 
