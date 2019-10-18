@@ -1,26 +1,79 @@
-function addItem() {
+$(document).ready(function() {
+    //When the document is ready
+    $('form').submit(function(e) {
+        //When user clicks submit button, check the entered values
+        //Prevent the default action : send to server
+        e.preventDefault();
+
+        //Get entered vales and check thier valididty
+        var customerType = $('input[name="customertype"]:checked').val();
+        var title = $('#title option:selected').text();
+        var firstName = $('input#firstname').val();
+        var lastName = $('input#lastname').val();
+        var street = $('input#street').val();
+        var city = $('input#city').val();
+        var postCode = $('input#postcode').val();
+        var phoneNumber = $('input#phonenumber').val();
+        var email = $('input#email').val();
+        var purchaseDate = $('input#purchasedate').val();
+        var repairDate = $('input#repairdate').val();
+        var imeiNumber = $('input#imeinumber').val();
+        var make = $('#make option:selected').val();
+        var faultCategory = $('#faultcategory option:selected').val();
+        var description = $('input#description').val();
+
+        //Check values
+
+        //Call to execute a function displayInvoice()
+        //displayInvoice(...);
+    })
+})
+
+function addPhone() {
     var item = document.getElementById("itemType").value;
     var cost;
-    switch (item) {
-        case "iPhone":
-            cost = 275;
-            break;
-        case "Other Phone":
-            cost = 100;
-            break;
-        case "Charger":
-            cost = 30;
-            break;
-        default:
-            cost = 0;
-            break;
+    if (item == "iPhone X") {
+        cost = 275;
+    } else {
+        cost = 100;
     }
     $("#itemList tbody").append(
-        "<tr>" +
+        "<tr id='phoneRow'>" +
         "<td>" + item + "</td>" +
         "<td class='cost'>" + cost + "</td>" +
         "</tr>"
     );
+
+    $('#addPhoneBtn').hide();
+    $('.phoneSelection').hide();
+    $('#removePhoneBtn').show();
+    updateCost();
+}
+
+function addCharger() {
+    $("#itemList tbody").append(
+        "<tr id='chargerRow'>" +
+        "<td>Charger</td>" +
+        "<td class='cost'>30</td>" +
+        "</tr>"
+    );
+    $('#addChargerBtn').hide();
+    $('#removeChargerBtn').show();
+    updateCost();
+}
+
+function removePhone() {
+    $('#phoneRow').remove();
+    $('#addPhoneBtn').show();
+    $('.phoneSelection').show();
+    $('#removePhoneBtn').hide();
+    updateCost();
+}
+
+function removeCharger() {
+    $('#chargerRow').remove();
+    $('#addChargerBtn').show();
+    $('#removeChargerBtn').hide();
     updateCost();
 }
 

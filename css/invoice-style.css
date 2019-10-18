@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    color: black;
+}
+
+header {
+    background-color: #A0A0A0;
+}
+
+hr {
+    height: 3px;
+    background-color: #9F9F9F;
+}
+
+footer {
+    border-top: 1px solid black
+}

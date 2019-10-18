@@ -127,7 +127,13 @@ fieldset {
     gap: 0.5em;
 }
 
-#addBtn {
+#removePhoneBtn,
+#removeChargerBtn {
+    display: none;
+}
+
+.courtesyBtn {
+    display: block;
     height: 40px;
 }
 

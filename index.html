@@ -57,7 +57,7 @@
                     <label>City:*</label>
                     <input type="text" id="city">
                     <label>Post Code:</label>
-                    <input type="text">
+                    <input type="text" id="postcode">
                     <label>Phone Number:*</label>
                     <input type="text" id="phonenumber">
                     <label>Email:*</label>
@@ -103,13 +103,20 @@
                 <!--Section 3: Courtesy Phone-->
                 <section class="courtesyPhone">
                     <h2>Courtesy Phone</h2>
-                    <label>Item Type:</label>
-                    <select id="itemType">
-                        <option>iPhone</option>
-                        <option>Other Phone</option>
-                        <option>Charger</option>
+                    <label class="phoneSelection">Item Type:</label>
+                    <select id="itemType" class="phoneSelection">
+                        <option>iPhone X</option>
+                        <option>Samsung Galaxy S10</option>
+                        <option>Huawei P30 Pro</option>
+                        <option>OnePlus 7 Pro</option>
+                        <option>Honor View 20</option>
+                        <option>Sony Xperia 1</option>
+                        <option>Google Pixel 3A</option>
                     </select>
-                    <button id="addBtn" type="button" onclick="addItem()">ADD</button>
+                    <button id="addPhoneBtn" class="courtesyBtn" type="button" onclick="addPhone()">ADD PHONE</button>
+                    <button id="removePhoneBtn" class="courtesyBtn" type="button" onclick="removePhone()">REMOVE PHONE</button>
+                    <button id="addChargerBtn" class="courtesyBtn" type="button" onclick="addCharger()">ADD CHARGER</button>
+                    <button id="removeChargerBtn" class="courtesyBtn" type="button" onclick="removeCharger()">REMOVE CHARGER</button>
                     <table id="itemList">
                         <thead>
                             <tr id="tableHeader">
