@@ -28,6 +28,8 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('textarea#description').val();
 
+        console.log($('#warranty').is(':checked'));
+
         //Dates
         var d = $('input#purchasedate').val();
         var date = d.split("/");
@@ -177,7 +179,7 @@ $(document).ready(function() {
         }
 
         //Call to execute a function displayInvoice()
-        //displayInvoice(...);
+        displayInvoice((title + " " + firstName + " " + lastName), street, ($('input#suburb').val() + ", " + city + ", " + postCode), phoneNumber, email, purchaseDate, repairDate, $('#warranty').is(':checked'), imeiNumber, make, $('input#model').val(), faultCategory, description, $('#courtesyPhone').val(), $('#courtesyCharger').val(), $('#bond').val(), $('#service').val(), $('total').val(), $('gst').val(), $('#grandtotal').val());
     });
 
     //When users enter data, make all error_messages disapear
@@ -212,7 +214,7 @@ function addPhone() {
     }
     $("#itemList tbody").append(
         "<tr id='phoneRow'>" +
-        "<td>" + item + "</td>" +
+        "<td id='courtesyPhone'>" + item + "</td>" +
         "<td class='cost'>" + cost + "</td>" +
         "</tr>"
     );
@@ -226,7 +228,7 @@ function addPhone() {
 function addCharger() {
     $("#itemList tbody").append(
         "<tr id='chargerRow'>" +
-        "<td>Charger</td>" +
+        "<td id='courtesyCXharger'>Charger</td>" +
         "<td class='cost'>30</td>" +
         "</tr>"
     );
@@ -336,4 +338,135 @@ function processJSON(arr) {
         output += '<div class="faqArticle"><h3>' + arr[i].question + '</h3><p>' + arr[i].answer + '</p></div>';
     }
     document.getElementById("faqMain").innerHTML = output;
+}
+
+//-------------------------------------------------------------------
+function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, courtesyPhone, CourtesyCharger, bond, serviceFee, total, gst, grandTotal) {
+    //create a "blank page"
+    let invoiceWindow = window.open('', '_blank');
+    let userName = name;
+    let userEmail = email;
+
+    //Build the "invoice page": is an HTML document
+    invoiceWindow.document.write(
+        `
+        <html>
+        <head>
+            <title>Booking Invoice</title>
+            <link rel="stylesheet" href="css/invoice-style.css">   
+        </head>                    
+        `
+    );
+
+    //Write the body section for the page
+    invoiceWindow.document.write(
+        `
+        <body>
+        <header>
+            <h1 class="title-area">Repair Booking</h1>
+            <div>
+                <h3>Amount Due</h3>
+                <h2>$${total}</h2>
+            </div>
+        </header>
+    
+        <main>
+            <section id="invoiceInfo">
+                <div id="customerInfo">
+                    <h3>Customer</h3>
+                    <br>
+                    <p id="customerDetails">${custName}<br>${custAddress}<br>${custAddress2}<br>${custPhone}<br>${custEmail}</p>
+                </div>
+                <div id="jobInfo">
+                    <h3>Repair Job</h3>
+                    <h4>Job Number:</h4>
+                    <p>${Math.floor((Math.random() * 99999) + 100000)}</p>
+                    <h4>Invoice Date:</h4>
+                    <p>//todo</p>
+                    <h4>Payment Date:</h4>
+                    <p>todo</p>    
+                </div>
+                <hr>
+            </section>
+            <section id="invoiceDetails">
+                <div id="repairInfo">
+                    <h2>Repair Details</h2>
+                    <h4>Purchase Date:</h4>
+                    <p>${purchaseDate}</p>
+                    <h4>Repair Date/Time:</h4>
+                    <p>${repairDate}</p>
+                    <h4>Under Warranty:</h4>
+        `
+    );
+    if (warranty) {
+        invoiceWindow.document.write(
+            `
+            <p>Yes &#10004;</p>            
+            `
+        )
+    } else {
+        invoiceWindow.document.write(
+            `
+            <p>No &#10006;</p>            
+            `
+        )
+    }
+    invoiceWindow.document.write(
+        `
+                    <h4>IMEI Number:</h4>
+                    <p>${imei}</p>
+                    <h4>Device Make:</h4>
+                    <p>${make}</p>
+                    <h4>Model Number:</h4>
+                    <p>${model}</p>
+                    <h4>Fault Category:</h4>
+                    <p>${fault}</p>
+                    <h4>Description:</h4>
+                    <p>${description}</p>
+                </div>
+                <div id="loanInfo">
+                    <h2>Courtesy Loan Device Details</h2>
+                    <table>
+                        <thead>
+                            <th>
+                                <th>Item</th>
+                                <th>Cost</th>
+                            </th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+    
+                </div>
+                <div id="costInfo">
+                    <h2>Totals</h2>
+                    <h4>Bond:</h4>
+                    <p>${bond}</p>
+                    <h4>Service Fee:</h4>
+                    <p>${service}</p>
+                    <h4>Total:</h4>
+                    <p>${total}</p>
+                    <h4>GST:</h4>
+                    <p>${gst}</p>
+                    <h4>Total(+GST):</h4>
+                    <p>${grandTotal}</p>
+                </div>
+            </section>
+        </main>
+    
+        <!--Footer Section-->
+        <footer>
+            <div id="companyInfo">
+                <h3>Phone Fix Services</h3>
+                <p>42 Fuxed It Drive<br>Alexander</p>
+            </div>
+            <div id="contactInfo">
+                <h3>Contact Us</h3>
+                <p><span style="font-weight: bold">Phone:</span>06876543</p>
+    
+            </div>
+        </footer>
+        </body>
+        </html>
+        `
+    );
 }
