@@ -37,7 +37,6 @@ $(document).ready(function() {
         var repairDate = new Date(date[2], date[0] - 1, date[1]);
 
         //Check values
-
         //Check customerType
         if (customerType == undefined) {
             //Invalid values
@@ -95,7 +94,7 @@ $(document).ready(function() {
         }
 
         //Check postCode
-        if (!(postCode.length == 4)) {
+        if (!(postCode.length == 4 || postCode.length == 0)) {
             //Invalid values
             //Display an error message
             $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
@@ -198,11 +197,16 @@ $(document).ready(function() {
     });
 });
 
+//----------------------------------------------------------------
+//Courtesy Phone table
+
 function addPhone() {
     var item = document.getElementById("itemType").value;
     var cost;
-    if (item == "iPhone X") {
+    if (item.includes("iPhone")) {
         cost = 275;
+    } else if (item == "Select a phone") {
+        return;
     } else {
         cost = 100;
     }
@@ -247,6 +251,16 @@ function removeCharger() {
 }
 
 function updateForm() {
+    //Warranty field
+    var d = $('input#purchasedate').val();
+    var date = d.split("/");
+    var purchaseDate = new Date(date[2], date[0] - 1, date[1]);
+    if (((Date.now() - purchaseDate) / 2.628e+9) > 24) {
+        $('input#warranty').prop('checked', false);
+    } else {
+        $('input#warranty').prop('checked', true);
+    }
+
     //Bond field
     var sum = 0;
     if (!document.getElementById('typebusiness').checked) {
@@ -277,16 +291,6 @@ function updateForm() {
     //Total(+GST) field
     grandTotal = total + gst;
     document.getElementById("grandtotal").value = convertToMoney(grandTotal);
-
-    //Warranty field
-    var d = $('input#purchasedate').val();
-    var date = d.split("/");
-    var purchaseDate = new Date(date[2], date[0] - 1, date[1]);
-    if (((Date.now() - purchaseDate) / 2.628e+9) > 24) {
-        $('input#warranty').prop('checked', false);
-    } else {
-        $('input#warranty').prop('checked', true);
-    }
 }
 
 function convertToMoney(aPrice) {
