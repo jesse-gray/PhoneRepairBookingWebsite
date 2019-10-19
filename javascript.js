@@ -22,7 +22,7 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('input#description').val();
 
-        console.log("Test value = " + firstName);
+        console.log("Test value = " + street);
 
         //Check values
 
@@ -44,24 +44,25 @@ $(document).ready(function() {
         //     return false
         // }
 
-        //Check firstName
-        if (!(firstName == /^[a-zA-Z0-9- ]*$/) || firstName == null) {
-            //Invalid values
-            //Display an error message
-            $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
-                //Stop Checking and quit
-            console.log("test failed successfully")
-            return false
-        }
+        // //Check firstName
+        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        // if (!(patt.test(firstName)) || firstName == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check lastName
-        if (!(lastName == /^[a-zA-Z0-9- ]*$/) || lastName == null) {
-            //Invalid values
-            //Display an error message
-            $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check lastName
+        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        // if (!(patt.test(lastName)) || lastName == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
         //Check street
         if (street == null) {
@@ -69,6 +70,7 @@ $(document).ready(function() {
             //Display an error message
             $('input#street').after('<p class="error_message">Please enter your street</p>')
                 //Stop Checking and quit
+            console.log("test failed successfully")
             return false
         }
 
