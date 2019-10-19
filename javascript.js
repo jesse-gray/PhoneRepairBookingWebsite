@@ -15,32 +15,35 @@ $(document).ready(function() {
         var postCode = $('input#postcode').val();
         var phoneNumber = $('input#phonenumber').val();
         var email = $('input#email').val();
-        var purchaseDate = $('input#purchasedate').val();
-        var repairDate = $('input#repairdate').val();
+        var purchaseDate = $('#purchaseDate').attr("type", "date");;
+        var repairDate = $('#repairDate').attr("type", "date");;
         var imeiNumber = $('input#imeinumber').val();
         var make = $('#make option:selected').text();
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('input#description').val();
 
+        console.log(customerType);
+
         //Check values
 
-        // //Check customerType
-        // if (customerType == null) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#customertype').after('<p class="error_message">Please enter a customer type</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check customerType
+        if (customerType == undefined) {
+            //Invalid values
+            //Display an error message
+            $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check title
-        // if (title == null) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#title').after('<p class="error_message">Please enter your title</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check title
+        if (title == null) {
+            //Invalid values
+            //Display an error message
+            $('input#title').after('<p class="error_message">Please enter your title</p>')
+                //Stop Checking and quit
+            console.log("test fail")
+            return false
+        }
 
         //Check firstName
         if (!(firstName == /^[a-zA-Z0-9- ]*$/) || firstName == null) {
@@ -48,8 +51,6 @@ $(document).ready(function() {
             //Display an error message
             $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
                 //Stop Checking and quit
-
-            console.log("test");
             return false
         }
 
@@ -163,8 +164,14 @@ $(document).ready(function() {
 
         //Call to execute a function displayInvoice()
         //displayInvoice(...);
-    })
-})
+    });
+
+    //When users enter data, make all error_messages disapear
+    $('input').focus(function() {
+        //Make all errormessages disappear
+        $('p.error_message').hide();
+    });
+});
 
 function addPhone() {
     var item = document.getElementById("itemType").value;
@@ -257,6 +264,7 @@ function openFAQ() {
 
 function clearForm() {
     $("#itemList tbody tr").remove();
+    $('p.error_message').hide();
 }
 
 //----------FAQ Page----------

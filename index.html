@@ -34,9 +34,9 @@
                 <!--Section 1: Customer Details-->
                 <section class="customerDetails">
                     <h2>Customer Details</h2>
-                    <fieldset>
+                    <fieldset id="customertype">
                         <legend>Customer Type:*</legend>
-                        Consumer <input type="radio" name="customertype" id="typeconsumer"><br> Business <input type="radio" name="customertype" id="typebusiness"><br>
+                        Consumer <input type="radio" name="customertype" id="typeconsumer" value="Consumer"><br> Business <input type="radio" name="customertype" id="typebusiness" value="Business"><br>
                     </fieldset>
                     <label>Title:*</label>
                     <select id="title" name="titles">
@@ -72,7 +72,7 @@
                     <input type="text" id="repairdate">
                     <fieldset>
                         <legend>Under Warranty:</legend>
-                        Warranty: <input type="checkbox" id="warranty"><br>
+                        Warranty: <input type="checkbox" id="warranty" disabled="disabled" checked><br>
                     </fieldset>
                     <label>IMEI Number:*</label>
                     <input type="text" id="imeinumber">
