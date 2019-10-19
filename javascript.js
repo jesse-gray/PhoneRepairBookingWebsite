@@ -22,7 +22,7 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('input#description').val();
 
-        console.log("Test value = " + street);
+        console.log("Test value = " + postcode);
 
         //Check values
 
@@ -64,24 +64,23 @@ $(document).ready(function() {
         //     return false
         // }
 
-        //Check street
-        if (street == null) {
-            //Invalid values
-            //Display an error message
-            $('input#street').after('<p class="error_message">Please enter your street</p>')
-                //Stop Checking and quit
-            console.log("test failed successfully")
-            return false
-        }
+        // //Check street
+        // if (street == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#street').after('<p class="error_message">Please enter your street</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check city
-        if (city == null) {
-            //Invalid values
-            //Display an error message
-            $('input#city').after('<p class="error_message">Please enter your city</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check city
+        // if (city == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#city').after('<p class="error_message">Please enter your city</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
         //Check postCode
         if (!(postCode.length == 4)) {
@@ -89,6 +88,7 @@ $(document).ready(function() {
             //Display an error message
             $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
                 //Stop Checking and quit
+            console.log("test failed successfully")
             return false
         }
 
