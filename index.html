@@ -31,7 +31,7 @@
     <!--Main Section-->
     <main>
         <!--Every inputs must be located in form-->
-        <form id="form" method="POST" action="" onchange="updateCost()">
+        <form id="form" method="POST" action="" onchange="updateForm()">
             <div class="form-layout">
                 <!--Section 1: Customer Details-->
                 <section class="customerDetails">
@@ -81,6 +81,7 @@
                     <input type="text" id="imeinumber">
                     <label>Make:*</label>
                     <select id="make" name="makes">
+                        <option>Select make</option>
                         <option>Apple</option>
                         <option>LG</option>
                         <option>Motorola</option>
@@ -93,6 +94,7 @@
                     <input type="text">
                     <label>Fault Category:*</label>
                     <select id="faultcategory" name="faults">
+                        <option>Select category</option>
                         <option>Battery</option>
                         <option>Charging</option>
                         <option>Screen</option>
