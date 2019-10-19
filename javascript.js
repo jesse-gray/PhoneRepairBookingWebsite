@@ -1,9 +1,9 @@
 $(function() {
-    $("#purchasedate").datepicker({ minDate: -20, maxDate: "+1M +15D" });
+    $("#purchasedate").datepicker({});
 });
 
 $(function() {
-    $("#repairdate").datepicker({ minDate: -20, maxDate: "+1M +15D" });
+    $("#repairdate").datepicker({});
 });
 
 $(document).ready(function() {
@@ -277,6 +277,16 @@ function updateForm() {
     //Total(+GST) field
     grandTotal = total + gst;
     document.getElementById("grandtotal").value = convertToMoney(grandTotal);
+
+    //Warranty field
+    var d = $('input#purchasedate').val();
+    var date = d.split("/");
+    var purchaseDate = new Date(date[2], date[0] - 1, date[1]);
+    if (((Date.now() - purchaseDate) / 2.628e+9) > 24) {
+        $('input#warranty').prop('checked', false);
+    } else {
+        $('input#warranty').prop('checked', true);
+    }
 }
 
 function convertToMoney(aPrice) {
