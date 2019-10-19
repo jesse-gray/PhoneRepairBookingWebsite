@@ -22,28 +22,27 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('input#description').val();
 
-        console.log(customerType);
+        console.log("Test value = " + firstName);
 
         //Check values
 
-        //Check customerType
-        if (customerType == undefined) {
-            //Invalid values
-            //Display an error message
-            $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check customerType
+        // if (customerType == undefined) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check title
-        if (title == null) {
-            //Invalid values
-            //Display an error message
-            $('input#title').after('<p class="error_message">Please enter your title</p>')
-                //Stop Checking and quit
-            console.log("test fail")
-            return false
-        }
+        // //Check title
+        // if (title == "Select title") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('select#title').after('<p class="error_message">Please enter your title</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
         //Check firstName
         if (!(firstName == /^[a-zA-Z0-9- ]*$/) || firstName == null) {
@@ -51,6 +50,7 @@ $(document).ready(function() {
             //Display an error message
             $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
                 //Stop Checking and quit
+            console.log("test failed successfully")
             return false
         }
 
