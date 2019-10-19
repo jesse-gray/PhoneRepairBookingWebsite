@@ -28,7 +28,7 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('textarea#description').val();
 
-        console.log($('#warranty').is(':checked'));
+        console.log($('#itemList').prop('outerHTML'));
 
         //Dates
         var d = $('input#purchasedate').val();
@@ -38,148 +38,148 @@ $(document).ready(function() {
         date = d.split("/");
         var repairDate = new Date(date[2], date[0] - 1, date[1]);
 
-        //Check values
-        //Check customerType
-        if (customerType == undefined) {
-            //Invalid values
-            //Display an error message
-            $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check values
+        // //Check customerType
+        // if (customerType == undefined) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check title
-        if (title == "Select title") {
-            //Invalid values
-            //Display an error message
-            $('select#title').after('<p class="error_message">Please enter your title</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check title
+        // if (title == "Select title") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('select#title').after('<p class="error_message">Please enter your title</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check firstName
-        var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        if (!(patt.test(firstName)) || firstName == null) {
-            //Invalid values
-            //Display an error message
-            $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check firstName
+        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        // if (!(patt.test(firstName)) || firstName == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check lastName
-        var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        if (!(patt.test(lastName)) || lastName == null) {
-            //Invalid values
-            //Display an error message
-            $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check lastName
+        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        // if (!(patt.test(lastName)) || lastName == null) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check street
-        if (street == "") {
-            //Invalid values
-            //Display an error message
-            $('input#street').after('<p class="error_message">Please enter your street</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check street
+        // if (street == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#street').after('<p class="error_message">Please enter your street</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check city
-        if (city == "") {
-            //Invalid values
-            //Display an error message
-            $('input#city').after('<p class="error_message">Please enter your city</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check city
+        // if (city == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#city').after('<p class="error_message">Please enter your city</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check postCode
-        if (!(postCode.length == 4 || postCode.length == 0)) {
-            //Invalid values
-            //Display an error message
-            $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check postCode
+        // if (!(postCode.length == 4 || postCode.length == 0)) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check phoneNumber
-        var patt = new RegExp(/^[0-9-()+ ]*$/)
-        if (!(patt.test(phoneNumber)) || phoneNumber == "") {
-            //Invalid values
-            //Display an error message
-            $('input#phonenumber').after('<p class="error_message">Please enter a valid phone number</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check phoneNumber
+        // var patt = new RegExp(/^[0-9-()+ ]*$/)
+        // if (!(patt.test(phoneNumber)) || phoneNumber == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#phonenumber').after('<p class="error_message">Please enter a valid phone number</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check email
-        if (email.indexOf("@") > email.indexOf(".") || email.length < 5) {
-            //Invalid values
-            //Display an error message
-            $('input#email').after('<p class="error_message">Please enter a valid email</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check email
+        // if (email.indexOf("@") > email.indexOf(".") || email.length < 5) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#email').after('<p class="error_message">Please enter a valid email</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check purchaseDate
-        if (purchaseDate > Date.now() || purchaseDate == "Invalid Date") {
-            //Invalid values
-            //Display an error message
-            $('input#purchasedate').after('<p class="error_message">Please enter a valid purchase date</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check purchaseDate
+        // if (purchaseDate > Date.now() || purchaseDate == "Invalid Date") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#purchasedate').after('<p class="error_message">Please enter a valid purchase date</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check repairDate
-        if (repairDate > Date.now() || repairDate < purchaseDate || repairDate == "Invalid Date") {
-            //Invalid values
-            //Display an error message
-            $('input#repairdate').after('<p class="error_message">Please enter a valid repair date</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check repairDate
+        // if (repairDate > Date.now() || repairDate < purchaseDate || repairDate == "Invalid Date") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#repairdate').after('<p class="error_message">Please enter a valid repair date</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check imeiNumber
-        var patt = new RegExp(/^[0-9]*$/)
-        if (imeiNumber.length != 15 || !(patt.test(imeiNumber))) {
-            //Invalid values
-            //Display an error message
-            $('input#imeinumber').after('<p class="error_message">Please enter a valid IMEI number</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check imeiNumber
+        // var patt = new RegExp(/^[0-9]*$/)
+        // if (imeiNumber.length != 15 || !(patt.test(imeiNumber))) {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('input#imeinumber').after('<p class="error_message">Please enter a valid IMEI number</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check make
-        if (make == "Select make") {
-            //Invalid values
-            //Display an error message
-            $('select#make').after('<p class="error_message">Please enter the make</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check make
+        // if (make == "Select make") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('select#make').after('<p class="error_message">Please enter the make</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check faultCategory
-        if (faultCategory == "Select category") {
-            //Invalid values
-            //Display an error message
-            $('select#faultcategory').after('<p class="error_message">Please enter the fault category</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check faultCategory
+        // if (faultCategory == "Select category") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('select#faultcategory').after('<p class="error_message">Please enter the fault category</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
-        //Check description
-        if (description == "") {
-            //Invalid values
-            //Display an error message
-            $('textarea#description').after('<p class="error_message">Please enter a description</p>')
-                //Stop Checking and quit
-            return false
-        }
+        // //Check description
+        // if (description == "") {
+        //     //Invalid values
+        //     //Display an error message
+        //     $('textarea#description').after('<p class="error_message">Please enter a description</p>')
+        //         //Stop Checking and quit
+        //     return false
+        // }
 
         //Call to execute a function displayInvoice()
-        displayInvoice((title + " " + firstName + " " + lastName), street, ($('input#suburb').val() + ", " + city + ", " + postCode), phoneNumber, email, purchaseDate, repairDate, $('#warranty').is(':checked'), imeiNumber, make, $('input#model').val(), faultCategory, description, $('#courtesyPhone').val(), $('#courtesyCharger').val(), $('#bond').val(), $('#service').val(), $('total').val(), $('gst').val(), $('#grandtotal').val());
+        displayInvoice((title + " " + firstName + " " + lastName), street, ($('input#suburb').val() + ", " + city + ", " + postCode), phoneNumber, email, purchaseDate, repairDate, $('#warranty').is(':checked'), imeiNumber, make, $('input#model').val(), faultCategory, description, $('#itemList').prop('outerHTML'), $('#bond').val(), $('#service').val(), $('#total').val(), $('#gst').val(), $('#grandtotal').val());
     });
 
     //When users enter data, make all error_messages disapear
@@ -341,7 +341,7 @@ function processJSON(arr) {
 }
 
 //-------------------------------------------------------------------
-function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, courtesyPhone, CourtesyCharger, bond, serviceFee, total, gst, grandTotal) {
+function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, table, bond, service, total, gst, grandTotal) {
     //create a "blank page"
     let invoiceWindow = window.open('', '_blank');
     let userName = name;
@@ -364,9 +364,9 @@ function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmai
         <body>
         <header>
             <h1 class="title-area">Repair Booking</h1>
-            <div>
-                <h3>Amount Due</h3>
-                <h2>$${total}</h2>
+            <div class="dueDetails">
+                <h4>Amount Due</h4>
+                <h3>${grandTotal}</h3>
             </div>
         </header>
     
@@ -377,25 +377,28 @@ function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmai
                     <br>
                     <p id="customerDetails">${custName}<br>${custAddress}<br>${custAddress2}<br>${custPhone}<br>${custEmail}</p>
                 </div>
-                <div id="jobInfo">
+                <div id="jobInfo" class="container">
                     <h3>Repair Job</h3>
-                    <h4>Job Number:</h4>
-                    <p>${Math.floor((Math.random() * 99999) + 100000)}</p>
-                    <h4>Invoice Date:</h4>
-                    <p>//todo</p>
-                    <h4>Payment Date:</h4>
-                    <p>todo</p>    
+                    <div class="list">
+                        <h4>Job Number:</h4>
+                        <p>${Math.floor((Math.random() * 99999) + 100000)}</p>
+                        <h4>Invoice Date:</h4>
+                        <p>//todo</p>
+                        <h4>Payment Date:</h4>
+                        <p>todo</p>    
+                    </div>
                 </div>
-                <hr>
             </section>
+            <hr>
             <section id="invoiceDetails">
-                <div id="repairInfo">
-                    <h2>Repair Details</h2>
-                    <h4>Purchase Date:</h4>
-                    <p>${purchaseDate}</p>
-                    <h4>Repair Date/Time:</h4>
-                    <p>${repairDate}</p>
-                    <h4>Under Warranty:</h4>
+            <div id="repairInfo" class="container">
+                <h2>Repair Details</h2>
+                    <div class="list">
+                        <h4>Purchase Date:</h4>
+                        <p>${purchaseDate}</p>
+                        <h4>Repair Date/Time:</h4>
+                        <p>${repairDate}</p>
+                        <h4>Under Warranty:</h4>
         `
     );
     if (warranty) {
@@ -413,42 +416,38 @@ function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmai
     }
     invoiceWindow.document.write(
         `
-                    <h4>IMEI Number:</h4>
-                    <p>${imei}</p>
-                    <h4>Device Make:</h4>
-                    <p>${make}</p>
-                    <h4>Model Number:</h4>
-                    <p>${model}</p>
-                    <h4>Fault Category:</h4>
-                    <p>${fault}</p>
-                    <h4>Description:</h4>
-                    <p>${description}</p>
+                        <h4>IMEI Number:</h4>
+                        <p>${imei}</p>
+                        <h4>Device Make:</h4>
+                        <p>${make}</p>
+                        <h4>Model Number:</h4>
+                        <p>${model}</p>
+                        <h4>Fault Category:</h4>
+                        <p>${fault}</p>
+                        <h4>Description:</h4>
+                        <p>${description}</p>
+                    </div>
                 </div>
-                <div id="loanInfo">
+                <div id="loanInfo" class="container">
                     <h2>Courtesy Loan Device Details</h2>
-                    <table>
-                        <thead>
-                            <th>
-                                <th>Item</th>
-                                <th>Cost</th>
-                            </th>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-    
+                    <div class="list">
+                        ${table}
+                    </div>
                 </div>
-                <div id="costInfo">
+                <div id="costInfo" class="container">
                     <h2>Totals</h2>
-                    <h4>Bond:</h4>
-                    <p>${bond}</p>
-                    <h4>Service Fee:</h4>
-                    <p>${service}</p>
-                    <h4>Total:</h4>
-                    <p>${total}</p>
-                    <h4>GST:</h4>
-                    <p>${gst}</p>
-                    <h4>Total(+GST):</h4>
-                    <p>${grandTotal}</p>
+                    <div class="list">
+                        <h4>Bond:</h4>
+                        <p>${bond}</p>
+                        <h4>Service Fee:</h4>
+                        <p>${service}</p>
+                        <h4>Total:</h4>
+                        <p>${total}</p>
+                        <h4>GST:</h4>
+                        <p>${gst}</p>
+                        <h4>Total(+GST):</h4>
+                        <p>${grandTotal}</p>
+                    </div>
                 </div>
             </section>
         </main>
