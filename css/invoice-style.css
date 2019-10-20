@@ -14,13 +14,18 @@ header {
     background-color: #A0A0A0;
     display: grid;
     min-height: 15vh;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: auto auto;
     padding: 1em;
 }
 
 header h1,
-.dueDetails {
+#dueDetails {
     margin: auto 0;
+}
+
+#dueDetails,
+#contactInfo {
+    text-align: right;
 }
 
 main {
@@ -33,11 +38,7 @@ main {
     grid-template-columns: 70% 30%;
 }
 
-#repairInfo {
-    grid-column-start: 1;
-    grid-column-end: -1;
-}
-
+#repairInfo,
 #loanInfo {
     grid-column-start: 1;
     grid-column-end: -1;
@@ -68,6 +69,7 @@ main {
 }
 
 table {
+    width: 20vw;
     border-collapse: collapse;
 }
 
@@ -78,7 +80,8 @@ table tr {
 }
 
 footer {
+    min-height: 10vh;
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 80% 20%;
     border-top: 1px solid black
 }
