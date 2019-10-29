@@ -73,7 +73,7 @@ h3 {
 
 #div1,
 #div2 {
-    float: left;
+    display: inline-block;
     width: 100px;
     height: 135px;
     margin: 10px;
@@ -90,6 +90,10 @@ img {
     content: "";
     clear: both;
     display: table;
+}
+
+.exampleArea {
+    text-align: center;
 }
 
 

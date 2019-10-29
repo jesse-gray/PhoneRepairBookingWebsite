@@ -7,18 +7,16 @@ $(function() {
 
 
 //-------------------GEOLOCATION----------------------
-var output = document.getElementById("locationOutput");
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        output.innerHTML = "GeoLocation is not supported by this browser.";
+        document.getElementById("locationOutput").innerHTML = "GeoLocation is not supported by this browser.";
     }
 }
 
 function showPosition(position) {
-    output.innerHTML = "Latitude: " + position.coords.latitude +
+    document.getElementById("locationOutput").innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;
 }
 
@@ -38,3 +36,22 @@ function drop(ev) {
 }
 
 //-------------------WEB STORAGE----------------------
+function storeData() {
+    var dataInput = document.getElementById('storageInput').value;
+    console.log(dataInput);
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem("name", dataInput);
+    }
+}
+
+function deleteData() {
+    localStorage.removeItem("name");
+}
+
+function retrieveData() {
+    if (localStorage.getItem("name") != null) {
+        alert("Name in storage is: " + localStorage.getItem("name"));
+    } else {
+        alert("There is currently no name in local storage");
+    }
+}
