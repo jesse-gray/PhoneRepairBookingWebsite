@@ -28,17 +28,13 @@ $(document).ready(function() {
         var faultCategory = $('#faultcategory option:selected').text();
         var description = $('textarea#description').val();
 
-        console.log($('#itemList').prop('outerHTML'));
-
-        console.log($('#itemList tr').length);
-
         //Dates
         var d = $('input#purchasedate').val();
         var date = d.split("/");
-        var purchaseDate = new Date(date[2], date[0] - 1, date[1]);
+        var purchaseDate = new Date(date[2], date[0] - 1, date[1]).toLocaleDateString('en');
         d = $('input#repairdate').val();
         date = d.split("/");
-        var repairDate = new Date(date[2], date[0] - 1, date[1]);
+        var repairDate = new Date(date[2], date[0] - 1, date[1], 15, 23).toLocaleDateString('en', { hour: 'numeric', minute: 'numeric', hour12: true }).toLocaleLowerCase();
 
         // //Check values
         // //Check customerType
