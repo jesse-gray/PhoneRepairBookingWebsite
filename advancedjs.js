@@ -37,11 +37,10 @@ function drop(ev) {
 
 //-------------------WEB STORAGE----------------------
 function storeData() {
-    var dataInput = document.getElementById('storageInput').value;
-    console.log(dataInput);
     if (typeof(Storage) !== "undefined") {
-        localStorage.setItem("name", dataInput);
+        localStorage.setItem("name", document.getElementById('storageInput').value);
     }
+    document.getElementById('storageInput').value = '';
 }
 
 function deleteData() {
