@@ -71,6 +71,27 @@ h3 {
     margin: 0.5em 0;
 }
 
+#div1,
+#div2 {
+    float: left;
+    width: 100px;
+    height: 135px;
+    margin: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 
 /*----------------------------------------*/
 
