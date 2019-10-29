@@ -342,8 +342,15 @@ function processJSON(arr) {
 function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, table, bond, service, total, gst, grandTotal) {
     //create a "blank page"
     let invoiceWindow = window.open('', '_blank');
-    let userName = name;
-    let userEmail = email;
+
+    //Declare dates
+    let dateNow = new Date();
+    let dateFuture = new Date(dateNow);
+    dateFuture.setDate(dateNow.getDate() + 5)
+    const months = ["January", "February", "March",
+        "April", "May", "June", "July", "August", "September",
+        "October", "November", "December"
+    ];
 
     //Build the "invoice page": is an HTML document
     invoiceWindow.document.write(
@@ -382,9 +389,9 @@ function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmai
                         <h4>Job Number:</h4>
                         <p>${Math.floor((Math.random() * 99999) + 100000)}</p>
                         <h4>Invoice Date:</h4>
-                        <p>//todo</p>
+                        <p>${months[dateNow.getMonth()] + " " + dateNow.getDate() + ", " + dateNow.getFullYear() + " - " + dateNow.getHours() + ":" + dateNow.getMinutes()}</p>
                         <h4>Payment Date:</h4>
-                        <p>todo</p>    
+                        <p>${months[dateFuture.getMonth()] + " " + dateFuture.getDate() + ", " + dateFuture.getFullYear()}</p>    
                     </div>
                 </div>
             </section>
