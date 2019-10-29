@@ -68,14 +68,19 @@ main {
     grid-column-end: -1;
 }
 
-table {
-    width: 20vw;
-    border-collapse: collapse;
+#itemList tr {
+    height: 50px;
 }
 
-table,
-table th,
-table tr {
+#itemList {
+    width: 20vw;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#itemList,
+#itemList th,
+td {
     border: 1px solid black;
 }
 
