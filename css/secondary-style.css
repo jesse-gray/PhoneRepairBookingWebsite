@@ -44,6 +44,12 @@ header .title-area {
     padding: 1.5em 0.5em;
 }
 
+#statement {
+    padding: 2em;
+    font-weight: normal;
+    text-align: left;
+}
+
 
 /*----------------------------------------*/
 
