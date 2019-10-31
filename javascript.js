@@ -34,7 +34,7 @@ $(document).ready(function() {
         var purchaseDate = new Date(date[2], date[0] - 1, date[1]).toLocaleDateString('en');
         d = $('input#repairdate').val();
         date = d.split("/");
-        var repairDate = new Date(date[2], date[0] - 1, date[1], 15, 23).toLocaleDateString('en', { hour: 'numeric', minute: 'numeric', hour12: true }).toLocaleLowerCase();
+        var repairDate = new Date(date[2], date[0] - 1, date[1]).toLocaleDateString('en', { hour: 'numeric', minute: 'numeric', hour12: true }).toLocaleLowerCase();
 
         //Check values
         //Check customerType
@@ -113,7 +113,8 @@ $(document).ready(function() {
         }
 
         //Check email
-        if (email.indexOf("@") > email.indexOf(".") || email.length < 5) {
+        var patt = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        if (!(patt.test(email)) || email.length < 5) {
             //Invalid values
             //Display an error message
             $('input#email').after('<p class="error_message">Please enter a valid email</p>')
@@ -203,6 +204,7 @@ $(document).ready(function() {
 function addPhone() {
     var item = document.getElementById("itemType").value;
     var cost;
+    //Determine cost
     if (item.includes("iPhone")) {
         cost = 275;
     } else if (item == "Select a phone") {
@@ -210,13 +212,15 @@ function addPhone() {
     } else {
         cost = 100;
     }
+    //Add to table
     $("#itemList tbody").append(
         "<tr id='phoneRow'>" +
         "<td id='courtesyPhone'>" + item + "</td>" +
         "<td class='cost'>" + cost + "</td>" +
         "</tr>"
     );
-
+    
+    //Update button visibilty
     $('#addPhoneBtn').hide();
     $('.phoneSelection').hide();
     $('#removePhoneBtn').show();
@@ -224,19 +228,23 @@ function addPhone() {
 }
 
 function addCharger() {
+    //Add to table
     $("#itemList tbody").append(
         "<tr id='chargerRow'>" +
-        "<td id='courtesyCXharger'>Charger</td>" +
+        "<td id='courtesyCharger'>Charger</td>" +
         "<td class='cost'>30</td>" +
         "</tr>"
     );
+    //Update visibilty
     $('#addChargerBtn').hide();
     $('#removeChargerBtn').show();
     updateForm();
 }
 
 function removePhone() {
+    //Remove from table
     $('#phoneRow').remove();
+    //Update visibilty
     $('#addPhoneBtn').show();
     $('.phoneSelection').show();
     $('#removePhoneBtn').hide();
@@ -244,7 +252,9 @@ function removePhone() {
 }
 
 function removeCharger() {
+    //Remove from table
     $('#chargerRow').remove();
+    //Update button visibilty
     $('#addChargerBtn').show();
     $('#removeChargerBtn').hide();
     updateForm();
