@@ -36,146 +36,146 @@ $(document).ready(function() {
         date = d.split("/");
         var repairDate = new Date(date[2], date[0] - 1, date[1]).toLocaleDateString('en', { hour: 'numeric', minute: 'numeric', hour12: true }).toLocaleLowerCase();
 
-        // //Check values
-        // //Check customerType
-        // if (customerType == undefined) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check values
+        //Check customerType
+        if (customerType == undefined) {
+            //Invalid values
+            //Display an error message
+            $('fieldset#customertype').after('<p class="error_message">Please enter a customer type</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check title
-        // if (title == "Select title") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('select#title').after('<p class="error_message">Please enter your title</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check title
+        if (title == "Select title") {
+            //Invalid values
+            //Display an error message
+            $('select#title').after('<p class="error_message">Please enter your title</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check firstName
-        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        // if (!(patt.test(firstName)) || firstName == null) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check firstName
+        var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        if (!(patt.test(firstName)) || firstName == null) {
+            //Invalid values
+            //Display an error message
+            $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check lastName
-        // var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        // if (!(patt.test(lastName)) || lastName == null) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check lastName
+        var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
+        if (!(patt.test(lastName)) || lastName == null) {
+            //Invalid values
+            //Display an error message
+            $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check street
-        // if (street == "") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#street').after('<p class="error_message">Please enter your street</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check street
+        if (street == "") {
+            //Invalid values
+            //Display an error message
+            $('input#street').after('<p class="error_message">Please enter your street</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check city
-        // if (city == "") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#city').after('<p class="error_message">Please enter your city</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check city
+        if (city == "") {
+            //Invalid values
+            //Display an error message
+            $('input#city').after('<p class="error_message">Please enter your city</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check postCode
-        // if (!(postCode.length == 4 || postCode.length == 0)) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check postCode
+        if (!(postCode.length == 4 || postCode.length == 0)) {
+            //Invalid values
+            //Display an error message
+            $('input#postcode').after('<p class="error_message">Please enter a valid postcode</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check phoneNumber
-        // var patt = new RegExp(/^[0-9-()+ ]*$/)
-        // if (!(patt.test(phoneNumber)) || phoneNumber == "") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#phonenumber').after('<p class="error_message">Please enter a valid phone number</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check phoneNumber
+        var patt = new RegExp(/^[0-9-()+ ]*$/)
+        if (!(patt.test(phoneNumber)) || phoneNumber == "") {
+            //Invalid values
+            //Display an error message
+            $('input#phonenumber').after('<p class="error_message">Please enter a valid phone number</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check email
-        // var patt = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-        // if (!(patt.test(email)) || email.length < 5) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#email').after('<p class="error_message">Please enter a valid email</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check email
+        var patt = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        if (!(patt.test(email)) || email.length < 5) {
+            //Invalid values
+            //Display an error message
+            $('input#email').after('<p class="error_message">Please enter a valid email</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check purchaseDate
-        // if (purchaseDate > Date.now() || purchaseDate == "Invalid Date") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#purchasedate').after('<p class="error_message">Please enter a valid purchase date</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check purchaseDate
+        if (Date.parse(purchaseDate) > Date.now() || purchaseDate == "Invalid Date") {
+            //Invalid values
+            //Display an error message
+            $('input#purchasedate').after('<p class="error_message">Please enter a valid purchase date</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check repairDate
-        // if (repairDate > Date.now() || repairDate < purchaseDate || repairDate == "Invalid Date") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#repairdate').after('<p class="error_message">Please enter a valid repair date</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check repairDate
+        if (Date.parse(repairDate) > Date.now() || Date.parse(repairDate) < Date.parse(purchaseDate) || repairDate == "Invalid Date") {
+            //Invalid values
+            //Display an error message
+            $('input#repairdate').after('<p class="error_message">Please enter a valid repair date</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check imeiNumber
-        // var patt = new RegExp(/^[0-9]*$/)
-        // if (imeiNumber.length != 15 || !(patt.test(imeiNumber))) {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('input#imeinumber').after('<p class="error_message">Please enter a valid IMEI number</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check imeiNumber
+        var patt = new RegExp(/^[0-9]*$/)
+        if (imeiNumber.length != 15 || !(patt.test(imeiNumber))) {
+            //Invalid values
+            //Display an error message
+            $('input#imeinumber').after('<p class="error_message">Please enter a valid IMEI number</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check make
-        // if (make == "Select make") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('select#make').after('<p class="error_message">Please enter the make</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check make
+        if (make == "Select make") {
+            //Invalid values
+            //Display an error message
+            $('select#make').after('<p class="error_message">Please enter the make</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check faultCategory
-        // if (faultCategory == "Select category") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('select#faultcategory').after('<p class="error_message">Please enter the fault category</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check faultCategory
+        if (faultCategory == "Select category") {
+            //Invalid values
+            //Display an error message
+            $('select#faultcategory').after('<p class="error_message">Please enter the fault category</p>')
+                //Stop Checking and quit
+            return false
+        }
 
-        // //Check description
-        // if (description == "") {
-        //     //Invalid values
-        //     //Display an error message
-        //     $('textarea#description').after('<p class="error_message">Please enter a description</p>')
-        //         //Stop Checking and quit
-        //     return false
-        // }
+        //Check description
+        if (description == "") {
+            //Invalid values
+            //Display an error message
+            $('textarea#description').after('<p class="error_message">Please enter a description</p>')
+                //Stop Checking and quit
+            return false
+        }
 
         //Call to execute a function displayInvoice()
         generateInvoiceID();
