@@ -6,6 +6,8 @@
 }
 
 body {
+    width: 1250px;
+    border: 1px solid black;
     background-color: #ffffff;
     color: black;
 }
@@ -13,7 +15,7 @@ body {
 header {
     background-color: #A0A0A0;
     display: grid;
-    min-height: 15vh;
+    min-height: 8em;
     grid-template-columns: auto auto;
     padding: 1em;
 }
@@ -35,7 +37,7 @@ main {
 #invoiceInfo,
 #invoiceDetails {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
 }
 
 #repairInfo,
@@ -72,8 +74,12 @@ main {
     height: 50px;
 }
 
+#itemList td {
+    width: 50%;
+}
+
 #itemList {
-    width: 20vw;
+    width: 25em;
     border-collapse: collapse;
     text-align: center;
 }
@@ -85,7 +91,7 @@ td {
 }
 
 footer {
-    min-height: 10vh;
+    min-height: 5em;
     display: grid;
     grid-template-columns: 80% 20%;
     border-top: 1px solid black

@@ -413,7 +413,7 @@ function displayInvoice(custName, custAddress, custPhone, custEmail, purchaseDat
                 <div id="customerInfo">
                     <h3>Customer</h3>
                     <br>
-                    <p id="customerDetails">${custName}<br>${custAddress}<br>${custPhone}<br>${custEmail}</p>
+                    <p id="customerDetails">${custName}<br>${custAddress}<br>${custPhone}<br>${custEmail}<br></p>
                 </div>
                 <div id="jobInfo" class="container">
                     <h3>Repair Job</h3>
