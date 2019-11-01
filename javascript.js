@@ -230,7 +230,7 @@ function addPhone() {
     $("#itemList tbody").append(
         "<tr id='phoneRow'>" +
         "<td id='courtesyPhone'>" + item + "</td>" +
-        "<td class='cost'>" + cost + "</td>" +
+        "<td id='testie' class='cost'>$" + cost + "</td>" +
         "</tr>"
     );
 
@@ -246,7 +246,7 @@ function addCharger() {
     $("#itemList tbody").append(
         "<tr id='chargerRow'>" +
         "<td id='courtesyCharger'>Charger</td>" +
-        "<td class='cost'>30</td>" +
+        "<td class='cost'>$30</td>" +
         "</tr>"
     );
     //Update visibilty
@@ -290,7 +290,7 @@ function updateForm() {
     if (!document.getElementById('typebusiness').checked) {
         //Total the cost of items in the table
         $('.cost').each(function() {
-            var value = $(this).text();
+            var value = $(this).text().slice(1);
             sum += parseFloat(value);
         });
     }
