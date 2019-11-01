@@ -179,7 +179,7 @@ $(document).ready(function() {
 
         //Call to execute a function displayInvoice()
         generateInvoiceID();
-        displayInvoice((title + " " + firstName + " " + lastName), street, ($('input#suburb').val() + ", " + city + ", " + postCode), phoneNumber, email, purchaseDate, repairDate, $('#warranty').is(':checked'), imeiNumber, make, $('input#model').val(), faultCategory, description, $('#itemList').prop('outerHTML'), $('#bond').val(), $('#service').val(), $('#total').val(), $('#gst').val(), $('#grandtotal').val());
+        displayInvoice((title + " " + firstName + " " + lastName), formatAddress(), phoneNumber, email, purchaseDate, repairDate, $('#warranty').is(':checked'), imeiNumber, make, $('input#model').val(), faultCategory, description, $('#itemList').prop('outerHTML'), $('#bond').val(), $('#service').val(), $('#total').val(), $('#gst').val(), $('#grandtotal').val());
     });
 
     //When users enter data, make all error_messages disapear
@@ -198,6 +198,19 @@ $(document).ready(function() {
         $('p.error_message').hide();
     });
 });
+
+function formatAddress() {
+    var output = "";
+    output += $('input#street').val() + "<br>";
+    if ($('input#suburb').val() != "") {
+        output += $('input#suburb').val() + ", ";
+    }
+    output += $('input#city').val();
+    if ($('input#postcode').val().length != 0) {
+        output += ", " + $('input#postcode').val();
+    }
+    return output;
+}
 
 //----------------------------------------------------------------
 //Courtesy Phone table
@@ -358,7 +371,7 @@ function generateInvoiceID() {
     }
 }
 
-function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, table, bond, service, total, gst, grandTotal) {
+function displayInvoice(custName, custAddress, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, table, bond, service, total, gst, grandTotal) {
     //create a "blank page"
     let invoiceWindow = window.open('', '_blank');
 
@@ -400,7 +413,7 @@ function displayInvoice(custName, custAddress, custAddress2, custPhone, custEmai
                 <div id="customerInfo">
                     <h3>Customer</h3>
                     <br>
-                    <p id="customerDetails">${custName}<br>${custAddress}<br>${custAddress2}<br>${custPhone}<br>${custEmail}</p>
+                    <p id="customerDetails">${custName}<br>${custAddress}<br>${custPhone}<br>${custEmail}</p>
                 </div>
                 <div id="jobInfo" class="container">
                     <h3>Repair Job</h3>
