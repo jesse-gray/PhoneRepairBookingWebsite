@@ -63,7 +63,7 @@ main {
 .faqArticle,
 .jsexample {
     padding: 1em;
-    margin: 2.5em 5em;
+    margin: 1.5em;
     background-color: var(--div-color);
 }
 
@@ -119,7 +119,12 @@ footer {
 
 /*STYLES FOR TABLE /iPAD*/
 
-@media screen and (min-width: 600px) {}
+@media screen and (min-width: 600px) {
+    .faqArticle,
+    .jsexample {
+        margin: 2.5em 5em;
+    }
+}
 
 
 /*----------------------------------------*/

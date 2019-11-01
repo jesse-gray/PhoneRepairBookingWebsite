@@ -3,33 +3,8 @@ $(function() {
     $("#datepicker").datepicker({});
 });
 
-//--------------Browser Compatibility-----------------
-function checkBrowser() {
-    var userAgent = navigator.userAgent;
-    var opera = (userAgent.indexOf('Opera') != -1);
-    var ie = (userAgent.indexOf('MSIE') != -1);
-    var gecko = (userAgent.indexOf('Gecko') != -1);
-    var netscape = (userAgent.indexOf('Mozilla') != -1);
-    var version = navigator.appVersion;
+//--------------------3D MODEL------------------------
 
-    var output = "";;
-
-    if (opera) {
-        output = "Opera based browser";
-    } else if (gecko) {
-        output = "Mozilla based browser";
-    } else if (ie) {
-        doutput = "IE based browser";
-    } else if (netscape) {
-        output = "Netscape based browser";
-    } else {
-        output = "Unknown browser";
-    }
-
-    // You can include version to along with any above condition.
-    output += "<br /> Browser version info : " + version;
-    document.getElementById("browserOutput").innerHTML = output;
-}
 
 //-------------------GEOLOCATION----------------------
 function getLocation() {
