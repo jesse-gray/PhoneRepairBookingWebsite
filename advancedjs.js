@@ -1,9 +1,13 @@
-//------------------DATE PICKER-----------------------
+//================DATE PICKER==================
+
+//Turns input into a datepicker
 $(function() {
     $("#datepicker").datepicker({});
 });
 
-//--------------------BROWSER INFO------------------------
+//==================BROWSER INFO==================
+
+//Gets browser details of device
 function checkBrowser(){
     var userAgent   = navigator.userAgent;
     var opera       = (userAgent.indexOf('Opera') != -1);
@@ -16,16 +20,12 @@ function checkBrowser(){
     
     if (opera) {
         browserOutput += "Opera based browser";
-        // Keep your opera specific URL here.
     } else if (gecko) {
         browserOutput += "Mozilla based browser";
-        // Keep your gecko specific URL here.
     } else if (ie) {
         browserOutput += "IE based browser";
-        // Keep your IE specific URL here.
     } else if (netscape) {
         browserOutput += "Netscape based browser";
-        // Keep your Netscape specific URL here.
     } else {
         browserOutput += "Unknown browser";
     }
@@ -36,7 +36,9 @@ function checkBrowser(){
 }
 
 
-//-------------------GEOLOCATION----------------------
+//==================GEOLOCATION==================
+
+//Gets lcocation of device
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -45,27 +47,34 @@ function getLocation() {
     }
 }
 
+//Outputs to HTML
 function showPosition(position) {
     document.getElementById("locationOutput").innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;
 }
 
-//-------------------DRAG & DROP----------------------
+//==================DRAG & DROP==================
+
+//Lets image be dropped in box
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
+//Move image from box to box
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
+//Drop image in box
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 }
 
-//-------------------WEB STORAGE----------------------
+//==================WEB STORAGE==================
+
+//Store name in web storage
 function storeData() {
     if (typeof(Storage) !== "undefined") {
         localStorage.setItem("name", document.getElementById('storageInput').value);
@@ -73,10 +82,12 @@ function storeData() {
     document.getElementById('storageInput').value = '';
 }
 
+//Delete name in web storage
 function deleteData() {
     localStorage.removeItem("name");
 }
 
+//Get name from web storage
 function retrieveData() {
     if (localStorage.getItem("name") != null) {
         alert("Name in storage is: " + localStorage.getItem("name"));

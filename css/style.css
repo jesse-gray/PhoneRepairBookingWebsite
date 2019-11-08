@@ -1,6 +1,5 @@
 /*MOBILE FIRST APPROACH: All styles below are set for mobile devices*/
 
-
 /*Global Styles*/
 
 * {
@@ -73,7 +72,7 @@ main {
     color: black;
 }
 
-.form-layout {}
+/*Error messages*/
 
 .error_message {
     color: red;
@@ -212,7 +211,7 @@ footer {
 }
 
 
-/*----------------------------------------*/
+/*========================================*/
 
 
 /*STYLES FOR TABLET /iPAD*/
@@ -239,7 +238,7 @@ footer {
 }
 
 
-/*----------------------------------------*/
+/*========================================*/
 
 
 /*STYLES FOR LAPTOP/DESKTOP*/

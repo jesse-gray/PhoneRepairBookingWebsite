@@ -1,3 +1,4 @@
+//==============Date Pickers================
 $(function() {
     $("#purchasedate").datepicker({});
 });
@@ -5,6 +6,8 @@ $(function() {
 $(function() {
     $("#repairdate").datepicker({});
 });
+
+//==============Input Form================
 
 $(document).ready(function() {
     //When the document is ready
@@ -36,8 +39,8 @@ $(document).ready(function() {
         date = d.split("/");
         var repairDate = new Date(date[2], date[0] - 1, date[1]).toLocaleDateString('en', { hour: 'numeric', minute: 'numeric', hour12: true }).toLocaleLowerCase();
 
-        //Check values
-        //Check customerType
+        //Validate values
+        //Validate customerType
         if (customerType == undefined) {
             //Invalid values
             //Display an error message
@@ -46,7 +49,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check title
+        //Validate title
         if (title == "Select title") {
             //Invalid values
             //Display an error message
@@ -55,7 +58,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check firstName
+        //Validate firstName
         var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
         if (!(patt.test(firstName)) || !(firstName.length > 0)) {
             //Invalid values
@@ -65,7 +68,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check lastName
+        //Validate lastName
         var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
         if (!(patt.test(lastName)) || !(lastName.length > 0)) {
             //Invalid values
@@ -75,7 +78,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check street
+        //Validate street
         if (street == "") {
             //Invalid values
             //Display an error message
@@ -84,7 +87,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check city
+        //Validate city
         if (city == "") {
             //Invalid values
             //Display an error message
@@ -93,7 +96,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check postCode
+        //Validate postCode
         if (!(postCode.length == 4 || postCode.length == 0)) {
             //Invalid values
             //Display an error message
@@ -102,7 +105,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check phoneNumber
+        //Validate phoneNumber
         var patt = new RegExp(/^[0-9-()+ ]*$/)
         if (!(patt.test(phoneNumber)) || phoneNumber == "") {
             //Invalid values
@@ -112,7 +115,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check email
+        //Validate email
         var patt = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
         if (!(patt.test(email)) || email.length < 5) {
             //Invalid values
@@ -122,7 +125,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check purchaseDate
+        //Validate purchaseDate
         if (Date.parse(purchaseDate) > Date.now() || purchaseDate == "Invalid Date" || purchaseDate == null) {
             //Invalid values
             //Display an error message
@@ -131,7 +134,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check repairDate
+        //Validate repairDate
         if (Date.parse(repairDate) > Date.now() || Date.parse(repairDate) < Date.parse(purchaseDate) || repairDate == "Invalid Date" || purchaseDate == null) {
             //Invalid values
             //Display an error message
@@ -140,7 +143,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check imeiNumber
+        //Validate imeiNumber
         var patt = new RegExp(/^[0-9]*$/)
         if (imeiNumber.length != 15 || !(patt.test(imeiNumber))) {
             //Invalid values
@@ -150,7 +153,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check make
+        //Validate make
         if (make == "Select make") {
             //Invalid values
             //Display an error message
@@ -159,7 +162,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check faultCategory
+        //Validate faultCategory
         if (faultCategory == "Select category") {
             //Invalid values
             //Display an error message
@@ -168,7 +171,7 @@ $(document).ready(function() {
             return false
         }
 
-        //Check description
+        //Validate description
         if (description == "") {
             //Invalid values
             //Display an error message
@@ -199,6 +202,7 @@ $(document).ready(function() {
     });
 });
 
+//Format address for display in invoice
 function formatAddress() {
     var output = "";
     output += $('input#street').val() + "<br>";
@@ -212,9 +216,9 @@ function formatAddress() {
     return output;
 }
 
-//----------------------------------------------------------------
-//Courtesy Phone table
+//==============Courtesy Phone Functions================
 
+//Add phone to table
 function addPhone() {
     var item = document.getElementById("itemType").value;
     var cost;
@@ -238,9 +242,11 @@ function addPhone() {
     $('#addPhoneBtn').hide();
     $('.phoneSelection').hide();
     $('#removePhoneBtn').show();
+    $("#itemType").val($("#itemType option:first").val());
     updateForm();
 }
 
+//Add charger to table
 function addCharger() {
     //Add to table
     $("#itemList tbody").append(
@@ -255,6 +261,7 @@ function addCharger() {
     updateForm();
 }
 
+//Remove phone from table
 function removePhone() {
     //Remove from table
     $('#phoneRow').remove();
@@ -265,6 +272,7 @@ function removePhone() {
     updateForm();
 }
 
+//Remove charger from table
 function removeCharger() {
     //Remove from table
     $('#chargerRow').remove();
@@ -274,6 +282,9 @@ function removeCharger() {
     updateForm();
 }
 
+//==============Cost Functions================
+
+//Update all totals in cost section
 function updateForm() {
     //Warranty field
     var d = $('input#purchasedate').val();
@@ -317,14 +328,12 @@ function updateForm() {
     document.getElementById("grandtotal").value = convertToMoney(grandTotal);
 }
 
+//Covert to currency ($ in front and 2 decimal)
 function convertToMoney(aPrice) {
     return "$" + aPrice.toFixed(2);
 }
 
-function openFAQ() {
-    var faqWindow = window.open("faq.html", "_blank")
-}
-
+//On reset of page, clear entire input form
 function clearForm() {
     $("#itemList tbody tr").remove();
     $('p.error_message').hide();
@@ -335,7 +344,13 @@ function clearForm() {
     $('#removeChargerBtn').hide();    
 }
 
-//----------FAQ Page----------
+//==============FAQ Page Functions================
+
+//On FAQ page load
+function openFAQ() {
+    var faqWindow = window.open("faq.html", "_blank")
+}
+
 //Loads RSS document
 function loadRSS() {
     //Use CORS API website as proxy to retrieve XML file
@@ -344,14 +359,14 @@ function loadRSS() {
 
     //Declare XMLHttpRequest Object
     var xmlhttp = new XMLHttpRequest();
-    //Send a request from Client side to Server to retrieve the xml document
+    //Send a request from Client side to Server to retrieve the JSON document
     xmlhttp.open("GET", proxy + url, true);
     xmlhttp.send();
-    //Check if the entire xml document has been received? If so, process it.
+    //Check if the entire JSON document has been received? If so, process it.
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
-            //Load XML document as XML format and process
+            //Load JSON document as JSON format and process
             processJSON(myArr);
         }
     };
@@ -367,7 +382,9 @@ function processJSON(arr) {
     document.getElementById("faqMain").innerHTML = output;
 }
 
-//-------------------------------------------------------------------
+//==============Invoice Functions================
+
+//Generate invoice id from web storage, starts at 100000
 function generateInvoiceID() {
     if (localStorage.invoiceid) {
         localStorage.invoiceid = Number(localStorage.invoiceid) + 1;
@@ -376,6 +393,7 @@ function generateInvoiceID() {
     }
 }
 
+//On form submit, display invoice
 function displayInvoice(custName, custAddress, custPhone, custEmail, purchaseDate, repairDate, warranty, imei, make, model, fault, description, table, bond, service, total, gst, grandTotal) {
     //create a "blank page"
     let invoiceWindow = window.open('', '_blank');
@@ -444,6 +462,7 @@ function displayInvoice(custName, custAddress, custPhone, custEmail, purchaseDat
                         <h4>Under Warranty:</h4>
         `
     );
+    //Depending on warranty, display tick or cross
     if (warranty) {
         invoiceWindow.document.write(
             `
@@ -473,6 +492,7 @@ function displayInvoice(custName, custAddress, custPhone, custEmail, purchaseDat
                 </div>
         `
     );
+    //Check if courtesy table needs to be on invoice or not
     if ($('#itemList tr').length > 1) {
         invoiceWindow.document.write(
             `
