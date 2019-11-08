@@ -42,7 +42,7 @@
                     </fieldset>
                     <label>Title:*</label>
                     <select id="title" name="titles">
-                        <option>Select title</option>
+                        <option disabled selected hidden>Select title</option>
                         <option>Mr</option>
                         <option>Mrs</option>
                         <option>Ms</option>
@@ -70,9 +70,9 @@
                 <section class="repairDetails">
                     <h2>Repair Details</h2>
                     <label>Purchase Date:*</label>
-                    <input type="text" id="purchasedate">
+                    <input type="text" id="purchasedate" readonly>
                     <label>Repair Date:*</label>
-                    <input type="text" id="repairdate">
+                    <input type="text" id="repairdate" readonly>
                     <fieldset>
                         <legend>Under Warranty:</legend>
                         Warranty: <input type="checkbox" id="warranty" disabled="disabled" checked><br>
@@ -81,7 +81,7 @@
                     <input type="text" id="imeinumber">
                     <label>Make:*</label>
                     <select id="make" name="makes">
-                        <option>Select make</option>
+                        <option disabled selected hidden>Select make</option>
                         <option>Apple</option>
                         <option>LG</option>
                         <option>Motorola</option>
@@ -94,7 +94,7 @@
                     <input type="text" id="model">
                     <label>Fault Category:*</label>
                     <select id="faultcategory" name="faults">
-                        <option>Select category</option>
+                        <option disabled selected hidden>Select category</option>
                         <option>Battery</option>
                         <option>Charging</option>
                         <option>Screen</option>
@@ -110,7 +110,7 @@
                     <h2>Courtesy Phone</h2>
                     <label class="phoneSelection">Phone Type:</label>
                     <select id="itemType" class="phoneSelection">
-                        <option>Select a phone</option>
+                        <option disabled selected hidden>Select a phone</option>
                         <option>Google Pixel 3A</option>
                         <option>Honor View 20</option>
                         <option>Huawei P30 Pro</option>

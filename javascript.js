@@ -57,7 +57,7 @@ $(document).ready(function() {
 
         //Check firstName
         var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        if (!(patt.test(firstName)) || firstName == null) {
+        if (!(patt.test(firstName)) || !(firstName.length > 0)) {
             //Invalid values
             //Display an error message
             $('input#firstname').after('<p class="error_message">Please enter a valid first name</p>')
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
         //Check lastName
         var patt = new RegExp(/^[a-zA-Z0-9- ]*$/)
-        if (!(patt.test(lastName)) || lastName == null) {
+        if (!(patt.test(lastName)) || !(lastName.length > 0)) {
             //Invalid values
             //Display an error message
             $('input#lastname').after('<p class="error_message">Please enter a valid last name</p>')
@@ -123,7 +123,7 @@ $(document).ready(function() {
         }
 
         //Check purchaseDate
-        if (Date.parse(purchaseDate) > Date.now() || purchaseDate == "Invalid Date") {
+        if (Date.parse(purchaseDate) > Date.now() || purchaseDate == "Invalid Date" || purchaseDate == null) {
             //Invalid values
             //Display an error message
             $('input#purchasedate').after('<p class="error_message">Please enter a valid purchase date</p>')
@@ -132,7 +132,7 @@ $(document).ready(function() {
         }
 
         //Check repairDate
-        if (Date.parse(repairDate) > Date.now() || Date.parse(repairDate) < Date.parse(purchaseDate) || repairDate == "Invalid Date") {
+        if (Date.parse(repairDate) > Date.now() || Date.parse(repairDate) < Date.parse(purchaseDate) || repairDate == "Invalid Date" || purchaseDate == null) {
             //Invalid values
             //Display an error message
             $('input#repairdate').after('<p class="error_message">Please enter a valid repair date</p>')
@@ -328,6 +328,11 @@ function openFAQ() {
 function clearForm() {
     $("#itemList tbody tr").remove();
     $('p.error_message').hide();
+    $('#addPhoneBtn').show();
+    $('#addChargerBtn').show();
+    $('.phoneSelection').show();
+    $('#removePhoneBtn').hide();
+    $('#removeChargerBtn').hide();    
 }
 
 //----------FAQ Page----------
